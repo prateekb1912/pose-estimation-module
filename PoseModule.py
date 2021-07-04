@@ -1,5 +1,5 @@
 import mediapipe as mp
-
+import cv2 
 
 class PoseEstimator():
 
@@ -16,4 +16,14 @@ class PoseEstimator():
                                      self.min_detect_conf, self.min_track_conf)
         self.mpDraw = mp.solutions.drawing_utils
 
+    def findPose(self, img):
+
+        imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        results = self.pose.process(imgRGB)
+
+        if results.pose_landmarks:
+            self.mpDraw.draw_landmarks(img, results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
         
+        return img
+
+    
