@@ -3,13 +3,21 @@ import numpy as np
 import mediapipe as mp
 import time
 
+# Create our pose estiamtion model object
+mpPose = mp.solutions.pose
+pose = mpPose.Pose()    # keep all default parameters
+
 # Initialize video capture object
 cap = cv2.VideoCapture('Footwork.mp4')
 
 prev = 0
 # Start reading from the video file
-while cv2.waitKey(24)!= 27:
+while cv2.waitKey(1)!= 27:
     succ, img = cap.read()
+    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+    # Pass our video frames as images to the model object
+    results = pose.process(imgRGB)
 
     # Calculating FPS
     curr = time.time()
