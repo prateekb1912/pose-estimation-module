@@ -9,7 +9,7 @@ pose = mpPose.Pose()    # keep all default parameters
 mpDraw = mp.solutions.drawing_utils
 
 # Initialize video capture object
-cap = cv2.VideoCapture('Footwork.mp4')
+cap = cv2.VideoCapture('smith.mp4')
 
 prev = 0
 # Start reading from the video file
@@ -21,7 +21,7 @@ while cv2.waitKey(1)!= 27:
     results = pose.process(imgRGB)
 
     if results.pose_landmarks:
-        mpDraw.draw_landmarks(img, results.pose_landmarks)
+        mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
 
     # Calculating FPS
     curr = time.time()
