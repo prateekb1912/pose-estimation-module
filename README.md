@@ -7,7 +7,7 @@ To use this module for your own projects, just fork/clone this repo and get star
 
 To test this on your videos, run the terminal from the cloned repo folder and type the following command:
 
-    python3 pose_estim.py -v "your_video_here"
+    python3 main.py -v "your_video_here"
 
 ## Examples
 

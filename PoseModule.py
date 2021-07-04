@@ -25,5 +25,3 @@ class PoseEstimator():
             self.mpDraw.draw_landmarks(img, results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
         
         return img
-
-    
